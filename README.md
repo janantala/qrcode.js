@@ -1,4 +1,4 @@
-# qrcode v1.0.0
+# qrcode.js v1.0.0
 
 QR code generator, supports Alphanumeric and Binary inputMode up to lvl 40.
 
