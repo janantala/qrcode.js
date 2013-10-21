@@ -37,6 +37,7 @@ for (var row = 0; row < modules; row++) {
 - Integer **2** - Level H (High)
 
 ## input mode 
+- `NUMBER`
 - `ALPHA_NUM`
 - `8bit` (default)
 
