@@ -1,0 +1,15 @@
+{
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "latedef": true,
+  "quotmark": "double",
+  "undef": true,
+  "maxparams": 5,
+  "maxdepth": 5,
+
+  "globals": {
+    "require": true,
+    "module": true
+  }
+}
