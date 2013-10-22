@@ -2,10 +2,13 @@ var path = require("path");
 
 module.exports = function(grunt) {
   "use strict";
-  var jsFiles = ["Gruntfile.js", "src/**/*.js"];
+  var jsFiles = ["Gruntfile.js", "src/**/*.js", "test/**/*.js"];
 
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
+
+    // cleaning output directories
+    clean: ["build", "lib"],
 
     // Run JSHint on all sources
     jshint: {
@@ -27,7 +30,7 @@ module.exports = function(grunt) {
 
     // browserify for packing all commonjs files
     browserify: {
-      client: {
+      lib: {
         src: ["src/QRCode.js"],
         dest: "lib/qrcode.js",
         options: {
@@ -43,16 +46,61 @@ module.exports = function(grunt) {
           "lib/qrcode.min.js": ["lib/qrcode.js"]
         }
       }
+    },
+
+    // Run tests using mocha
+    mochaTest: {
+      libRaw: {
+        options: {
+          require: ["./test/testStandard.js"],
+          reporter: "spec"
+        },
+        src: ["test/**/*Test.js"]
+      },
+      coverage: {
+        options: {
+          require: ["./test/testCoverage.js"],
+          reporter: "min"
+        },
+        src: ["test/**/*Test.js"]
+      }
+    },
+
+    // tasks for coverage analysis (istanbul)
+    instrument: {
+      files: ["src/**/*.js"],
+      options: {
+        basePath: "build/instrumented/"
+      }
+    },
+    storeCoverage: {
+      options: {
+        dir: "build/reports/coverage/"
+      }
+    },
+    makeReport: {
+      src: "build/reports/coverage/**/*.json",
+      options: {
+        type: "lcov",
+        dir: "build/reports/coverage/",
+        print: "text-summary"
+      }
     }
   });
 
   grunt.loadNpmTasks("grunt-browserify");
+  grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-istanbul");
   grunt.loadNpmTasks("grunt-jsbeautifier");
+  grunt.loadNpmTasks("grunt-mocha-test");
 
   grunt.registerTask("lint", ["jshint", "jsbeautifier"]);
+  grunt.registerTask("test", ["mochaTest:libRaw"]);
   grunt.registerTask("compile", ["browserify", "uglify"]);
 
-  grunt.registerTask("default", ["lint", "compile"]);
+  grunt.registerTask("coverage", ["instrument", "mochaTest:coverage", "storeCoverage", "makeReport"]);
+
+  grunt.registerTask("default", ["clean", "lint", "test", "compile"]);
 };
