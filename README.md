@@ -4,6 +4,20 @@
 
 QR code generator, supports Numeric, Alphanumeric and Binary inputMode up to lvl 40.
 
+# Installation
+
+## Bower
+
+We use [bower](http://twitter.github.com/bower/) for dependency management. Add
+
+    dependencies: {
+        "qrcode": "latest"
+    }
+
+To your `bower.json` file. Then run
+
+    bower install
+
 # Usage
 
 #### Create QR code
