@@ -53,9 +53,9 @@ for (var row = 0; row < modules; row++) {
 - Integer **2** - Level H (High)
 
 ## input mode 
-- `NUMBER`
-- `ALPHA_NUM`
-- `8bit` (default)
+- `NUMBER`: *0, 1, 2, 3, 4, 5, 6, 7, 8, 9*
+- `ALPHA_NUM`: *0–9, A–Z (upper-case only), space, $, %, *, +, -, ., /, :*
+- `8bit` (default): *[ISO 8859-1](http://en.wikipedia.org/wiki/ISO_8859-1)*
 
 # Reference
 Kazuhiko Arase, http://www.d-project.com/
