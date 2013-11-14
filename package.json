@@ -33,6 +33,7 @@
     "grunt-istanbul": "~0.2.2",
     "grunt-jsbeautifier": "~0.2.0",
     "grunt-mocha-test": "~0.6.3",
+    "grunt-conventional-changelog": "~1.0.0",
     "load-grunt-tasks" : "~0.2.0"
   },
   "engines": {

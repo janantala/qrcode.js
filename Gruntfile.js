@@ -85,6 +85,11 @@ module.exports = function(grunt) {
         dir: "build/reports/coverage/",
         print: "text-summary"
       }
+    },
+    changelog: {
+      options: {
+        dest: "CHANGELOG.md"
+      }
     }
   });
 
