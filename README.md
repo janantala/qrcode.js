@@ -1,6 +1,6 @@
 [![Build Status](https://secure.travis-ci.org/janantala/qrcode.js.png?branch=master)](http://travis-ci.org/janantala/qrcode.js) [![Coverage Status](https://coveralls.io/repos/janantala/qrcode.js/badge.png?branch=master)](https://coveralls.io/r/janantala/qrcode.js?branch=master)
 
-# qrcode.js v1.0.1
+# qrcode.js v1.0.2
 
 QR code generator, supports Numeric, Alphanumeric and Binary inputMode up to lvl 40.
 
