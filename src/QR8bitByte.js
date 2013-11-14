@@ -9,6 +9,14 @@ function QR8bitByte(data) {
   this.data = data;
 }
 
+QR8bitByte.prototype.getCode = function(character) {
+  var index = character.charCodeAt(0);
+  if (index > 255) {
+    throw new Error("Invalid character: `" + character + "`");
+  }
+  return index;
+};
+
 QR8bitByte.prototype.getLength = function(buffer) {
   return this.data.length;
 };
@@ -16,7 +24,7 @@ QR8bitByte.prototype.getLength = function(buffer) {
 QR8bitByte.prototype.write = function(buffer) {
   for (var i = 0; i < this.data.length; i++) {
     // not JIS ...
-    buffer.put(this.data.charCodeAt(i), 8);
+    buffer.put(this.getCode(this.data[i]), 8);
   }
 };
 

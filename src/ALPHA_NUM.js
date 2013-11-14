@@ -11,7 +11,11 @@ function ALPHA_NUM(data) {
 
 ALPHA_NUM.prototype.getCode = function(code) {
   var codes = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:";
-  return codes.indexOf(code);
+  var index = codes.indexOf(code);
+  if (index < 0) {
+    throw new Error("Invalid character: `" + code + "`");
+  }
+  return index;
 };
 
 ALPHA_NUM.prototype.getLength = function(buffer) {
