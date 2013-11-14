@@ -85,16 +85,15 @@ module.exports = function(grunt) {
         dir: "build/reports/coverage/",
         print: "text-summary"
       }
+    },
+    changelog: {
+      options: {
+        dest: "CHANGELOG.md"
+      }
     }
   });
 
-  grunt.loadNpmTasks("grunt-browserify");
-  grunt.loadNpmTasks("grunt-contrib-clean");
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-istanbul");
-  grunt.loadNpmTasks("grunt-jsbeautifier");
-  grunt.loadNpmTasks("grunt-mocha-test");
+  require("load-grunt-tasks")(grunt);
 
   grunt.registerTask("lint", ["jshint", "jsbeautifier"]);
   grunt.registerTask("test", ["mochaTest:libRaw"]);

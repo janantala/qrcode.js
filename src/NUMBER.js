@@ -9,6 +9,14 @@ function NUMBER(data) {
   this.data = data;
 }
 
+NUMBER.prototype.getCode = function(chars) {
+  var index = parseInt(chars, 10);
+  if (isNaN(index)) {
+    throw new Error("Invalid character: `" + chars + "`");
+  }
+  return index;
+};
+
 NUMBER.prototype.getBitLen = function(length) {
   var NUMBER_LENGTH = {
     3: 10,
@@ -34,7 +42,7 @@ NUMBER.prototype.write = function(buffer) {
     }
 
     var bitLength = this.getBitLen(chars.length);
-    buffer.put(parseInt(chars, 10), bitLength);
+    buffer.put(this.getCode(chars), bitLength);
 
     i++;
     i++;

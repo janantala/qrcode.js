@@ -1,6 +1,6 @@
 {
   "name": "qrcode.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "QR code generator, supports Numeric, Alphanumeric and Binary input mode up to lvl 40.",
   "author": {
     "name": "Jan Antala",
@@ -32,7 +32,9 @@
     "grunt-contrib-yuidoc": "~0.4.0",
     "grunt-istanbul": "~0.2.2",
     "grunt-jsbeautifier": "~0.2.0",
-    "grunt-mocha-test": "~0.6.3"
+    "grunt-mocha-test": "~0.6.3",
+    "grunt-conventional-changelog": "~1.0.0",
+    "load-grunt-tasks" : "~0.2.0"
   },
   "engines": {
     "node": ">=0.10.x"
