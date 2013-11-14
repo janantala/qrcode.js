@@ -32,7 +32,8 @@
     "grunt-contrib-yuidoc": "~0.4.0",
     "grunt-istanbul": "~0.2.2",
     "grunt-jsbeautifier": "~0.2.0",
-    "grunt-mocha-test": "~0.6.3"
+    "grunt-mocha-test": "~0.6.3",
+    "load-grunt-tasks" : "~0.2.0"
   },
   "engines": {
     "node": ">=0.10.x"
