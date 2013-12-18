@@ -10,9 +10,11 @@ QR code generator, supports Numeric, Alphanumeric and Binary inputMode up to lvl
 
 We use [bower](http://twitter.github.com/bower/) for dependency management. Add
 
-    dependencies: {
-        "qrcode": "latest"
-    }
+```json
+dependencies: {
+    "qrcode": "latest"
+}
+```
 
 To your `bower.json` file. Then run
 
@@ -21,23 +23,26 @@ To your `bower.json` file. Then run
 # Usage
 
 #### Create QR code
-```
+
+```js
 var qr = new QRCode(typeNumber, correction, inputMode);
 qr.addData(text);
 qr.make();
 ```
 
 #### Get module count
-```
+
+```js
 var modules = qr.getModuleCount();
 ```
 
 #### Get tile color
-```
+
+```js
 for (var row = 0; row < modules; row++) {
   for (var col = 0; col < modules; col++) {
     var color = qr.isDark(row, col) ? '#000' : '#fff';
-    ...
+    //...
   }
 }
 ```
